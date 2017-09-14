@@ -29,7 +29,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Lokka = function () {
   function Lokka() {
-    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     (0, _classCallCheck3.default)(this, Lokka);
 
     this._transport = options.transport;
@@ -52,12 +52,12 @@ var Lokka = function () {
     }
   }, {
     key: 'send',
-    value: function send(rawQuery, vars) {
+    value: function send(rawQuery, vars, context) {
       if (!rawQuery) {
         throw new Error('rawQuery is required!');
       }
-
-      return this._transport.send(rawQuery, vars);
+      var operationName = null;
+      return this._transport.send(rawQuery, vars, operationName, context);
     }
   }, {
     key: 'createFragment',
@@ -78,7 +78,7 @@ var Lokka = function () {
     value: function _findFragments(queryOrFragment) {
       var _this = this;
 
-      var fragmentsMap = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+      var fragmentsMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       var matched = queryOrFragment.match(/\.\.\.[A-Za-z0-9]+/g);
       if (matched) {
@@ -104,7 +104,7 @@ var Lokka = function () {
     }
   }, {
     key: 'query',
-    value: function query(_query, vars) {
+    value: function query(_query, vars, context) {
       if (!_query) {
         throw new Error('query is required!');
       }
@@ -113,11 +113,11 @@ var Lokka = function () {
       var fragments = this._findFragments(_query);
       var queryWithFragments = _query + '\n' + fragments.join('\n');
 
-      return this.send(queryWithFragments, vars);
+      return this.send(queryWithFragments, vars, context);
     }
   }, {
     key: 'mutate',
-    value: function mutate(query, vars) {
+    value: function mutate(query, vars, context) {
       if (!query) {
         throw new Error('query is required!');
       }
@@ -127,7 +127,7 @@ var Lokka = function () {
       var fragments = this._findFragments(mutationQuery);
       var queryWithFragments = mutationQuery + '\n' + fragments.join('\n');
 
-      return this.send(queryWithFragments, vars);
+      return this.send(queryWithFragments, vars, context);
     }
   }, {
     key: 'watchQuery',
