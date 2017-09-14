@@ -1,5 +1,5 @@
 {
-  "name": "@deltaplus/lokka",
+  "name": "deltaplus-lokka-context",
   "version": "1.7.1",
   "description": "Simple JavaScript client for GraphQL",
   "types": "types.d.ts",
