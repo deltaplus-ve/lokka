@@ -29,7 +29,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Lokka = function () {
   function Lokka() {
-    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     (0, _classCallCheck3.default)(this, Lokka);
 
     this._transport = options.transport;
@@ -78,7 +78,7 @@ var Lokka = function () {
     value: function _findFragments(queryOrFragment) {
       var _this = this;
 
-      var fragmentsMap = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+      var fragmentsMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       var matched = queryOrFragment.match(/\.\.\.[A-Za-z0-9]+/g);
       if (matched) {

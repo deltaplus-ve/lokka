@@ -1,4 +1,4 @@
-# lokka
+# lokka-context
 
 Simple GraphQL client for JavaScript. 
 

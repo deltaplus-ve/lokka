@@ -1,11 +1,11 @@
 {
-  "name": "lokka",
-  "version": "1.7.0",
+  "name": "@deltaplus/lokka",
+  "version": "1.7.1",
   "description": "Simple JavaScript client for GraphQL",
   "types": "types.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kadirahq/lokka.git"
+    "url": "https://github.com/deltaplus-ve/lokka.git"
   },
   "keywords": [
     "graphql",
