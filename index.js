@@ -56,8 +56,8 @@ var Lokka = function () {
       if (!rawQuery) {
         throw new Error('rawQuery is required!');
       }
-
-      return this._transport.send(rawQuery, vars, context);
+      var operationName = null;
+      return this._transport.send(rawQuery, vars, operationName, context);
     }
   }, {
     key: 'createFragment',
